@@ -1,0 +1,33 @@
+{
+	"name": "telegraf-util",
+	"version": "1.0.2",
+	"description": "Utility library for Telegraf bots.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"build": "tsc"
+	},
+	"keywords": [
+		"Telegraf",
+		"Telegram",
+		"Bot",
+		"Utility"
+	],
+	"author": "Nick",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.7.7",
+		"telegraf": "^4.16.3"
+	},
+	"repository": {
+		"url": ""
+	},
+	"devDependencies": {
+		"@telegraf/types": "^7.1.0",
+		"@types/node": "^22.5.4",
+		"typescript": "^5.5.4"
+	}
+}

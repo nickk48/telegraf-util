@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"module": "NodeNext",
+		"target": "ES2022",
+		"strict": true,
+		"alwaysStrict": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"forceConsistentCasingInFileNames": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitReturns": true,
+		"rootDir": "./src",
+		"outDir": "./dist"
+	}
+}
