@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "NodeNext",
+		"esModuleInterop": true,
+		"moduleDetection": "force",
+		"allowJs": true,
+		"removeComments": true,
+		"strict": true,
+		"alwaysStrict": true,
+		"noImplicitThis": true,
+		"noImplicitAny": true,
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
+		"rootDir": "./lib",
+		"outDir": "./dist",
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"forceConsistentCasingInFileNames": true,
+		"useUnknownInCatchVariables": true,
+		"resolveJsonModule": true,
+		"strictNullChecks": true
+	},
+	"include": ["lib/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
