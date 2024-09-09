@@ -1,6 +1,6 @@
 {
 	"name": "telegraf-util",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Utility library for Telegraf bots.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
