@@ -11,8 +11,10 @@ import {
 	OnEvent,
 	TelegrafUtil
 } from 'telegraf-util';
-import { UserButtons, UserButtonsText } from '../buttons/UserButtons';
+import { SceneContext } from 'telegraf/scenes';
+import { UserButtons, UserButtonText } from '../buttons/UserButtons';
 import { HaveUsernameGuard } from '../guards/HaveUsernameGuard';
+import { SceneId } from '../scenes/constants';
 
 export class UserHandler {
 	@InjectBot private readonly _bot!: Telegraf<Context>;
@@ -37,15 +39,17 @@ export class UserHandler {
 		);
 	}
 
-	@Hears(Object.values(UserButtonsText))
-	async handleButtons(ctx: Context) {
+	@Hears(Object.values(UserButtonText))
+	async handleButtons(ctx: SceneContext) {
 		const text = TelegrafUtil.textOfCtx(ctx);
 
 		switch (text) {
-			case UserButtonsText.GET_REPO_LINK:
-				return void ctx.replyWithHTML(`Git ${this._repositoryURL}`); // TODO: сделать по красоте <a> попробовать с href либо продвинуться на markdown
-			case UserButtonsText.GET_STICKER:
+			case UserButtonText.GET_REPO_LINK:
+				return void ctx.replyWithHTML(this._gitLinkWithCode);
+			case UserButtonText.GET_STICKER:
 				return void ctx.replyWithSticker(this._sticker);
+			case UserButtonText.SCENE:
+				return void ctx.scene.enter(SceneId.MINI);
 			default:
 				break;
 		}
@@ -108,5 +112,24 @@ export class UserHandler {
 			ctx,
 			writer: createWriteStream(`./${randomUUID()}.txt`)
 		});
+	}
+
+	private get _gitLinkWithCode() {
+		return `${this._repositoryURL}\n\n<pre language="typescript">import { randomUUID } from 'crypto';
+import { Scenes } from 'telegraf';
+import { Enter, Hears, Scene } from 'telegraf-util';
+
+@Scene('mini')
+export class MiniScene {
+	@Enter showWelcome(ctx: Scenes.SceneContext) {
+		ctx.reply('Welcome to mini scene, type me uuid');
+	}
+
+	@Hears('uuid')
+	async showUUID(ctx: Scenes.SceneContext) {
+		await ctx.reply(randomUUID());
+		await ctx.scene.leave();
+	}
+}</pre>`;
 	}
 }
