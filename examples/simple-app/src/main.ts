@@ -7,7 +7,7 @@ import { MiniScene } from './scenes/MiniScene';
 async function main() {
 	const bot = new Telegraf(process.env.TOKEN as string);
 	const handlers = provideHandlers({
-		repositoryURL: 'https://github.com' // TODO: change
+		repositoryURL: 'https://github.com/nickk48/telegraf-util'
 	});
 
 	bot.use(session());

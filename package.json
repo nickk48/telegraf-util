@@ -23,7 +23,7 @@
 		"telegraf": "^4.16.3"
 	},
 	"repository": {
-		"url": ""
+		"url": "https://github.com/nickk48/telegraf-util"
 	},
 	"devDependencies": {
 		"@telegraf/types": "^7.1.0",
